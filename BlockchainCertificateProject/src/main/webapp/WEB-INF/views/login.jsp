@@ -29,18 +29,38 @@
 		<br> <br>
 		<h2>증명발급 시스템 &nbsp;</h2>
 		<hr>
-		<form>
+		<form method="post" name="user" action="loginCheck.do">
 			<div class="form-group">
-				<label for="exampleInputEmail1">아이디</label> <input type="email"
-					class="form-control" id="exampleInputEmail1"
+				<label for="exampleInputEmail1">아이디</label> <input type="text"
+					name="id" class="form-control" id="exampleInputEmail1"
 					aria-describedby="emailHelp" placeholder="아이디를 입력해주세요">
 			</div>
 			<div class="form-group">
-				<label for="exampleInputPassword1">패스워드</label> <input
+				<label for="exampleInputPassword1">패스워드</label> <input name="passwd"
 					type="password" class="form-control" id="exampleInputPassword1"
 					placeholder="패스워드를 입력해주세요">
 			</div>
-			<button type="submit" class="btn btn-primary">로그인</button>
+			<button class="btn btn-primary" onclick='login()'>로그인</button>
+			<script type="text/JavaScript">
+                function login() {
+                    var form_data={
+                        id:$('#id').val(),
+                        passwd=$('#passwd').val()
+                    };
+
+                    alert(form_data)
+                    $ajax({
+                        type:'POST',
+                        dataType:'json',
+                        url:'loginCheck.do',
+                        data:JSON.stringify(form_data),
+                        success: function(data) {  alert("성공:"+data.KEY);},
+        error:function(request,status,error){
+                alert("code:"+request.status+"\n"+"error:"+error);}
+
+                    });
+                }
+                </script>
 		</form>
 	</div>
 

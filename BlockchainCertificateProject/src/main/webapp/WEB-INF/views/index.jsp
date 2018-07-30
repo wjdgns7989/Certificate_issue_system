@@ -38,7 +38,7 @@
 			</p>
 			<hr class="my-2">
 			<p class="lead">
-				<a class="btn btn-primary " href="login.html" role="button">증명서
+				<a class="btn btn-primary " href="loginPage" role="button">증명서
 					발급</a> <a class="btn btn-success " href="Jumbo action link"
 					role="button">증명서 인증</a>
 

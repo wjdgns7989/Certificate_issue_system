@@ -9,15 +9,21 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
-import com.tomato.bean.UserBean;
+import com.tomato.dto.UserBean;
+import com.tomato.dto.UserDTO;
 
 /**
  * Handles requests for the application home page.
@@ -25,23 +31,37 @@ import com.tomato.bean.UserBean;
 @Controller
 public class HomeController {
 
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	// 1. 원래 있던 코드에서 HttpServletRequest request 라는 파라메터를 추가.
-	// 2. @RequestMapping 어노테이션은 value값으로 된 URI값, 지정된 method방식으로 페이지 접근 요청이 들어오면
-	// 해당 기능을 수행.
+	// index페이지 요청
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
 		return "index";
 	}
 
+	// login 화면 요청
+	@RequestMapping(value = "/loginPage", method = RequestMethod.GET)
+	public String loginPage() {
+		return "login";
+	}
+
+	// 로그인 확인
+	@RequestMapping(value = "/loginCheck.do", method = RequestMethod.POST, produces = "application/json")
+	public String loginCheck(UserDTO userDTO) {
+		boolean loginOk = false;
+		if ((userDTO.getId().equals("halin") && userDTO.getPasswd().equals("1234"))
+				|| (userDTO.getId().equals("junghoon") && userDTO.getPasswd().equals("1234"))) {
+			loginOk = true;
+		}
+		System.out.println(userDTO.getId() + "\t" + userDTO.getPasswd());
+		return "result";
+	}
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	// 1. 로그인페이지 요청 시 작업내용
 	// 2. ( method = RequestMethod.GET ) 부분은 GET방식 요청으로만 접근 할 수 있다는 뜻
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
 	public ModelAndView loginPage(HttpServletRequest request, Model model) {
+		System.out.println("login.do");
 		// 세션정보에 유저 정보가 있으면 메인페이지로 강제이동
 		if (getUserSession(request) != null) {
 			return redirectView(request, "/");
@@ -77,7 +97,7 @@ public class HomeController {
 			UserBean user = new UserBean();
 			user.setUsername(username);
 			user.setPassword(password);
-			user.setNickname("김정훈");
+			// user.setNickname("김정훈");
 
 			// 세션에 유저 정보값을 저장
 			session.setAttribute("USER_SESSION", user);
