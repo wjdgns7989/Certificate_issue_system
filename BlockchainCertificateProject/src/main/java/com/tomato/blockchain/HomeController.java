@@ -25,9 +25,6 @@ import org.springframework.web.servlet.view.RedirectView;
 import com.tomato.dto.UserBean;
 import com.tomato.dto.UserDTO;
 
-/**
- * Handles requests for the application home page.
- */
 @Controller
 public class HomeController {
 
