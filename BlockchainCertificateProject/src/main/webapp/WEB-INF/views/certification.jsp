@@ -16,31 +16,27 @@
 	crossorigin="anonymous">
 </head>
 
-
 <body>
-
 	<!-- nav -->
 	<nav class="nav bg-dark">
-		<a class="nav-link active" href="#">세종대 로고</a>
+		<a class="navbar-brand" href="#"> <img src="/img/logo.png"
+			width="30" height="30" alt="">
+		</a>
 	</nav>
 
-	<!-- body -->
+
 	<div class="container">
 		<br> <br>
-		<h2>증명발급 시스템 &nbsp;</h2>
+		<h2>ì¦ëªì ê²ì¦</h2>
 		<hr>
 		<form>
 			<div class="form-group">
-				<label for="exampleInputEmail1">아이디</label> <input type="email"
-					class="form-control" id="exampleInputEmail1"
-					aria-describedby="emailHelp" placeholder="아이디를 입력해주세요">
+				<label for="exampleInputEmail1">í¸ëì­ì ìì´ë</label> <input
+					type="email" class="form-control" id="exampleInputEmail1"
+					aria-describedby="emailHelp"
+					placeholder="ìì´ëë¥¼ ìë ¥í´ì£¼ì¸ì">
 			</div>
-			<div class="form-group">
-				<label for="exampleInputPassword1">패스워드</label> <input
-					type="password" class="form-control" id="exampleInputPassword1"
-					placeholder="패스워드를 입력해주세요">
-			</div>
-			<button type="submit" class="btn btn-primary">로그인</button>
+			<button type="submit" class="btn btn-primary">ì¡°ííê¸°</button>
 		</form>
 	</div>
 

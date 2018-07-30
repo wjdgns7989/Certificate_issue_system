@@ -16,33 +16,36 @@
 	crossorigin="anonymous">
 </head>
 
-
 <body>
 
 	<!-- nav -->
 	<nav class="nav bg-dark">
-		<a class="nav-link active" href="#">세종대 로고</a>
+		<a class="navbar-brand" href="#"> <img src="/img/logo.png"
+			width="30" height="30" alt="">
+		</a>
 	</nav>
 
+
+
 	<!-- body -->
-	<div class="container">
-		<br> <br>
-		<h2>증명발급 시스템 &nbsp;</h2>
-		<hr>
-		<form>
-			<div class="form-group">
-				<label for="exampleInputEmail1">아이디</label> <input type="email"
-					class="form-control" id="exampleInputEmail1"
-					aria-describedby="emailHelp" placeholder="아이디를 입력해주세요">
-			</div>
-			<div class="form-group">
-				<label for="exampleInputPassword1">패스워드</label> <input
-					type="password" class="form-control" id="exampleInputPassword1"
-					placeholder="패스워드를 입력해주세요">
-			</div>
-			<button type="submit" class="btn btn-primary">로그인</button>
-		</form>
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<h3 class="display-4">증명서 발급 시스템</h3>
+
+			<p class="lead">
+				블록체인을 통한 증명서 발급 시스템입니다. <br> 최초 증명서 발급 시 추가 비용없이 지속적인 사용이
+				가능합니다.
+			</p>
+			<hr class="my-2">
+			<p class="lead">
+				<a class="btn btn-primary " href="login.html" role="button">증명서
+					발급</a> <a class="btn btn-success " href="Jumbo action link"
+					role="button">증명서 인증</a>
+
+			</p>
+		</div>
 	</div>
+
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
