@@ -1,4 +1,4 @@
-package com.tomato.blockchain;
+package com.tomato.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.tomato.dto.Email;
-import com.tomato.dto.EmailSender;
+import com.tomato.email.Email;
+import com.tomato.email.EmailSender;
 
 	
 	@Controller

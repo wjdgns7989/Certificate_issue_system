@@ -1,4 +1,4 @@
-package com.tomato.dto;
+package com.tomato.email;
 import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
- 
-import com.tomato.dto.Email;
+
+import com.tomato.email.Email;
 
 
 @Component

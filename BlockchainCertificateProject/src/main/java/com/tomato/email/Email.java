@@ -1,4 +1,4 @@
-package com.tomato.dto;
+package com.tomato.email;
 
 public class Email {
 	 	private String subject;
