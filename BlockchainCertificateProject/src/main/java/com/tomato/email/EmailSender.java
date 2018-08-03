@@ -21,13 +21,14 @@ public class EmailSender  {
  
     public void SendEmail(Email email) throws Exception {
          
-    	MimeMessage msg = mailSender.createMimeMessage();
+       MimeMessage msg = mailSender.createMimeMessage();
         try {
             msg.setSubject(email.getSubject());
-            msg.setText(email.getContent());
+            msg.setText("<b>홍길동 졸업 증명서 발급<br></b> "+
+                      "<a href=\"https://www.naver.com/\">인증</a>", "UTF-8", "html");
             msg.setRecipients(MimeMessage.RecipientType.TO , InternetAddress.parse(email.getReciver()));
             msg.setFrom("sejong");
-           
+            
         }catch(MessagingException e) {
             System.out.println("MessagingException");
             e.printStackTrace();

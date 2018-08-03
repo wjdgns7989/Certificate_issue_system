@@ -1,0 +1,43 @@
+{
+	proofOfEnrollment: {
+		issuer: {
+			id: "학사지원본부",
+			type: "학사지원",
+			contact: {
+				email: "sw6@sejong.ac.kr",
+				phone: "02-3408-3114"
+			}
+		},
+		no: "42357",
+		type: "재학 증명서",
+		certificate: {
+			name: "김정훈",
+			dateOfBirth: "1994년 03월 14일",
+			college: "소프트웨어융합대학",
+			major: "컴퓨터공학과",
+			grade: "3학년 재학"
+		}
+	},
+	diploma: {
+		issuer: {
+			id: "학사지원본부",
+			type: "학사지원",
+			contact: {
+				email: "sw6@sejong.ac.kr",
+				phone: "02-3408-3114"
+			}
+		},
+		no: "58367",
+		type: "졸업 증명서",
+		certificate: {
+			name: "김정훈",
+			dateOfBirth: "1994년 03월 14일",
+			college: "소프트웨어융합대학",
+			major: "컴퓨터공학과",
+			dateOfMatriculation: "2013년 03월 02일",
+			dateOfGraduation: "2018년 02월 18일",
+			nameOfDegree: "공학사",
+			degreeRegistrationNo: "세종대2018(학) 3493"
+		}
+	}
+}

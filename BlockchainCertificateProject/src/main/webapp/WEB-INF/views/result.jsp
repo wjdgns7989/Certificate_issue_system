@@ -102,33 +102,16 @@
    <div class="container">
       <hr>
       <form method="post" action="emailSender">
-         <div class="form-group">
-            <label for="blockchain">블록체인 값</label> <input class="form-control"
-               id="blockchain" type="text" placeholder="124bds943kogdjisdim3"
-               readonly> <small id="emailHelp"
-               class="form-text text-muted">블록체인 주소를 요청해주세요</small>
-         </div>
+         
          <div class="form-group">
             <label for="email">이메일</label> <input class="form-control"
-               id="email" type="email" placeholder="이메일" name="sender" >
+               id="email" type="email" placeholder="이메일을 입력해주세요" name="sender" >
          </div>
          <div class="row">
-            <div class="col-3">
-
-               <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox"
-                     id="inlineCheckbox1" value="option1"> <label
-                     class="form-check-label" for="inlineCheckbox1">재학</label>
-               </div>
-               <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox"
-                     id="inlineCheckbox2" value="option2"> <label
-                     class="form-check-label" for="inlineCheckbox2">졸업</label>
-               </div>
-            </div>
+            
             <div class="col-7"></div>
             <div class="col-2">
-               <input class="btn" type="submit" value="submit"> 
+               <input class="btn" type="submit" value="인증 요청"> 
                <script type="text/javascript">
                   function result() {
                      alert("발급이 완료되었습니다.");
