@@ -59,7 +59,7 @@ public class LoginController {
 			}
 		}
 		if (loginOk) {
-			mv.setViewName("result");
+			mv.setViewName("check");
 		} else {
 			mv.setViewName("login");
 			mv.addObject("login", false);
