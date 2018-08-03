@@ -19,6 +19,18 @@
 
 <body>
 
+	<%
+		if ((Boolean) request.getAttribute("login") != null) {
+	%>
+	<script type="text/javascript">
+				
+					alert("아이디 또는 비밀번호가 틀렸습니다.")	
+				
+				</script>
+	<%
+		}
+	%>
+
 	<!-- nav -->
 	<nav class="nav bg-dark">
 		<a class="nav-link active" href="#">세종대 로고</a>

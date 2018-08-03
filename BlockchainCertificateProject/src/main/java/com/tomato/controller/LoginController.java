@@ -3,6 +3,7 @@ package com.tomato.controller;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -41,14 +42,31 @@ public class LoginController {
 
 	// 로그인 확인
 	@RequestMapping(value = "/loginCheck.do", method = RequestMethod.POST, produces = "application/json")
-	public String loginCheck(UserDTO userDTO) {
+	public ModelAndView loginCheck(UserDTO userDTO) {
+		ModelAndView mv = new ModelAndView();
+		Map<String, String> member = LoginUser.getInstance();
+		System.out.println("size : "+member.size());
 		boolean loginOk = false;
-		if ((userDTO.getId().equals("halin") && userDTO.getPasswd().equals("1234"))
-				|| (userDTO.getId().equals("junghoon") && userDTO.getPasswd().equals("1234"))) {
-			loginOk = true;
+		System.out.println("???");
+		for (String key : member.keySet()) {
+			System.out.println(member.get(key) + userDTO.getId());
+			if (key.equals(userDTO.getId())) {
+				if (member.get(key).equals(userDTO.getPasswd())) {
+					loginOk = true;
+					break;
+				}
+
+			}
 		}
-		System.out.println(userDTO.getId() + "\t" + userDTO.getPasswd());
-		return "result";
+		if (loginOk) {
+			mv.setViewName("result");
+		} else {
+			mv.setViewName("login");
+			mv.addObject("login", false);
+		}
+
+		return mv;
+
 	}
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
