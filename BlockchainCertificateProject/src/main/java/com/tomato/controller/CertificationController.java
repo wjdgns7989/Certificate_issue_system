@@ -31,22 +31,20 @@ public class CertificationController {
 		JSONParser parser = new JSONParser();
 		try {
 	 
-			Object obj = parser.parse(new FileReader("BlockchainCertificateProject\\src\\main\\webapp\\resources\\json\\user1.json"));
+			Object obj1 = parser.parse(new FileReader("halin.json"));
+			Object obj2 = parser.parse(new FileReader("halin.json"));
 	 
-			JSONObject jsonObject = (JSONObject) obj;
+			JSONObject jsonObject1 = (JSONObject) obj1;
+			JSONObject jsonObject2 = (JSONObject) obj2;
 	 
-			String name = (String) jsonObject.get("name");
-			System.out.println(name);
+			JSONObject name = (JSONObject) jsonObject1.get("재학");
+			JSONObject temp = (JSONObject) jsonObject2.get("이름");
+			
+			
+			System.out.println(temp);
 	 
-			long age = (Long) jsonObject.get("age");
-			System.out.println(age);
-	 
-			// loop array
-			JSONArray msg = (JSONArray) jsonObject.get("messages");
-			Iterator<String> iterator = msg.iterator();
-			while (iterator.hasNext()) {
-				System.out.println(iterator.next());
-			}
+			
+			
 	 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
