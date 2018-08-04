@@ -24,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.tomato.dto.UserDTO;
+import com.tomato.util.LoginUser;
 
 @Controller
 public class LoginController {
@@ -64,9 +65,7 @@ public class LoginController {
 			mv.setViewName("login");
 			mv.addObject("login", false);
 		}
-
 		return mv;
-
 	}
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////

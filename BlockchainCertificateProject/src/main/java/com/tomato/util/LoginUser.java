@@ -1,4 +1,4 @@
-package com.tomato.controller;
+package com.tomato.util;
 
 import java.util.HashMap;
 import java.util.Map;

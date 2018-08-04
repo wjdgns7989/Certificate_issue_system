@@ -1,4 +1,4 @@
-package com.tomato.network;
+package com.tomato.util;
 
 public class BlockChainNetwork {
 	
