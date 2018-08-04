@@ -30,7 +30,7 @@
 		<h2>증명발급 시스템 &nbsp;</h2>
 		<hr>
 		<div class="container">
-			<form method="get" action="boxcheck.do">
+			<form method="get" action="boxcheck.do" name="form">
 				<div class="form-group">
 					<label for="blockchain">블록체인 값</label> <input class="form-control"
 						id="blockchain" type="text" placeholder="124bds943kogdjisdim3"
@@ -53,7 +53,20 @@
 					<div class="col-7"></div>
 
 					<div class="col-2">
-						<input type="submit" class="btn btn-primary" value="제출">
+						<a class="btn btn-primary" value="제출"
+							onclick='checkbox();return false'>신청</a>
+						<script type="text/javascript">
+							function checkbox() {
+								var certification_value = document.form.checkbox[0].checked;
+								var diploma_value = document.form.checkbox[1].checked;
+								if (!certification_value && !diploma_value) {
+									alert('하나 이상을 체크 해주세요!')
+									return;
+								} else {
+									form.submit();
+								}
+							}
+						</script>
 					</div>
 				</div>
 			</form>

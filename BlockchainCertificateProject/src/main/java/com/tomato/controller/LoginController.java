@@ -42,11 +42,11 @@ public class LoginController {
 	}
 
 	// 로그인 확인
-	@RequestMapping(value = "/loginCheck.do", method = RequestMethod.POST, produces = "application/json")
-	public ModelAndView loginCheck(UserDTO userDTO) {
+	@RequestMapping(value = "/loginCheck.do", method = RequestMethod.POST)
+	public ModelAndView loginCheck(UserDTO userDTO, HttpServletRequest req) {
 		ModelAndView mv = new ModelAndView();
 		Map<String, String> member = LoginUser.getInstance();
-		System.out.println("size : "+member.size());
+		System.out.println("size : " + member.size());
 		boolean loginOk = false;
 		System.out.println("???");
 		for (String key : member.keySet()) {
@@ -54,6 +54,8 @@ public class LoginController {
 			if (key.equals(userDTO.getId())) {
 				if (member.get(key).equals(userDTO.getPasswd())) {
 					loginOk = true;
+					//로그인 세션추가
+					req.getSession().setAttribute("loginOk", userDTO.getId());
 					break;
 				}
 

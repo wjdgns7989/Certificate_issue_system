@@ -24,11 +24,11 @@ public class InterCept implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest req, HttpServletResponse res, Object arg2) throws Exception {
 
-		System.out.println("hoi");
-		if (req.getSession().getAttribute("isLogin") == null) {
-			res.sendRedirect("/blockchain");
-			return false;
-		}
+//		System.out.println("hoi");
+//		if (req.getSession().getAttribute("isLogin") == null) {
+//			res.sendRedirect("/blockchain");
+//			return false;
+//		}
 		return true;
 	}
 
