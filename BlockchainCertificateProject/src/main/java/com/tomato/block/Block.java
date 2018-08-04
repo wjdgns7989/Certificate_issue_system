@@ -3,7 +3,7 @@ package com.tomato.block;
 import java.util.Date;
 
 public class Block {
-
+//test
 	public String hash;
 	public String previousHash;
 	private String data; // our data will be a simple message.
