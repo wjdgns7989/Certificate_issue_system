@@ -33,33 +33,135 @@ public class CertificationController {
    
    @RequestMapping(value = "/boxcheck.do")
    public ModelAndView boxCheck(HttpServletRequest request, UserDTO userDTO, DiplomaDTO diplomaDTO, EnrollmentDTO enrollmentDTO) {
-	   System.out.println(request.getSession().getAttribute("loginOk"));
-	   Map<String, String> member = LoginUser.getInstance();
-	   for (String key : member.keySet()) {
-			if (key.equals(userDTO.getId())) {
-				if (member.get(key).equals(userDTO.getPasswd())) {
-					break;
-				}
-			}
-		}
-	   ModelAndView mv = new ModelAndView(); 
-	   
-       String[] value = request.getParameterValues("checkbox");
+      ModelAndView mv = new ModelAndView();
+      JSONParser parser = new JSONParser();
+      String[] value = request.getParameterValues("checkbox");
        System.out.println(Arrays.toString(value));
-      
-       JSONParser parser = new JSONParser(); 
-       try {
-    	  
-          Object obj = parser.parse(new FileReader("halin.json")); 
-          JSONObject jsonObject = (JSONObject) obj;
-          JSONObject dataObject = (JSONObject) jsonObject.get("certificate1"); 
-          System.out.println("type : " +dataObject.get("type"));
-          
-          
-          
+       
+       
+      try {
+         
+         if(request.getSession().getAttribute("loginOk").equals("junghoon"))
+         {
+            Object obj = parser.parse(new FileReader("junghoon.json"));
+            JSONObject jsonObject = (JSONObject) obj;
+            JSONObject dataObject1 = (JSONObject) jsonObject.get("certificate1");
+            JSONObject dataObject2 = (JSONObject) jsonObject.get("certificate2"); 
+            if(value.length==1)
+            {
+               if(value[0].equals("certification"))
+               {
+                  enrollmentDTO.setNo(dataObject1.get("no").toString());
+                  enrollmentDTO.setType(dataObject1.get("type").toString());
+                  enrollmentDTO.setName(dataObject1.get("name").toString());
+                  enrollmentDTO.setDateOfBirth(dataObject1.get("dateOfBirth").toString());
+                  enrollmentDTO.setCollege(dataObject1.get("college").toString());
+                  enrollmentDTO.setMajor(dataObject1.get("major").toString());
+                  enrollmentDTO.setGrade(dataObject1.get("grade").toString());
+                  mv.addObject("enrollment", enrollmentDTO);
+               }
+               else if(value[0].equals("diploma"))
+               {
+                  diplomaDTO.setNo(dataObject2.get("no").toString());
+                  diplomaDTO.setType(dataObject2.get("type").toString());
+                  diplomaDTO.setName(dataObject2.get("name").toString());
+                  diplomaDTO.setDateOfBirth(dataObject2.get("dateOfBirth").toString());
+                  diplomaDTO.setCollege(dataObject2.get("college").toString());
+                  diplomaDTO.setMajor(dataObject2.get("major").toString());
+                  diplomaDTO.setDateOfMatriculation(dataObject2.get("dateOfMatriculation").toString());
+                  diplomaDTO.setDateOfGraduation(dataObject2.get("dateOfGraduation").toString());
+                  diplomaDTO.setNameOfDegree(dataObject2.get("nameOfDegree").toString());
+                  diplomaDTO.setDegreeRegistrationNo(dataObject2.get("degreeRegistrationNo").toString());
+                  mv.addObject("diploma", diplomaDTO);
+               }
+            }
+            else
+            {
+               enrollmentDTO.setNo(dataObject1.get("no").toString());
+               enrollmentDTO.setType(dataObject1.get("type").toString());
+               enrollmentDTO.setName(dataObject1.get("name").toString());
+               enrollmentDTO.setDateOfBirth(dataObject1.get("dateOfBirth").toString());
+               enrollmentDTO.setCollege(dataObject1.get("college").toString());
+               enrollmentDTO.setMajor(dataObject1.get("major").toString());
+               enrollmentDTO.setGrade(dataObject1.get("grade").toString());
+               
+               diplomaDTO.setNo(dataObject2.get("no").toString());
+               diplomaDTO.setType(dataObject2.get("type").toString());
+               diplomaDTO.setName(dataObject2.get("name").toString());
+               diplomaDTO.setDateOfBirth(dataObject2.get("dateOfBirth").toString());
+               diplomaDTO.setCollege(dataObject2.get("college").toString());
+               diplomaDTO.setMajor(dataObject2.get("major").toString());
+               diplomaDTO.setDateOfMatriculation(dataObject2.get("dateOfMatriculation").toString());
+               diplomaDTO.setDateOfGraduation(dataObject2.get("dateOfGraduation").toString());
+               diplomaDTO.setNameOfDegree(dataObject2.get("nameOfDegree").toString());
+               diplomaDTO.setDegreeRegistrationNo(dataObject2.get("degreeRegistrationNo").toString());
+               mv.addObject("enrollment", enrollmentDTO);
+               mv.addObject("diploma", diplomaDTO);
+            }
+         }   
+         
+         else if(request.getSession().getAttribute("loginOk").equals("halin"))
+         {
+            Object obj = parser.parse(new FileReader("halin.json"));
+            JSONObject jsonObject = (JSONObject) obj;
+            JSONObject dataObject1 = (JSONObject) jsonObject.get("certificate1");
+            JSONObject dataObject2 = (JSONObject) jsonObject.get("certificate2"); 
+            if(value.length==1)
+            {
+               if(value[0].equals("certification"))
+               {
+                  enrollmentDTO.setNo(dataObject1.get("no").toString());
+                  enrollmentDTO.setType(dataObject1.get("type").toString());
+                  enrollmentDTO.setName(dataObject1.get("name").toString());
+                  enrollmentDTO.setDateOfBirth(dataObject1.get("dateOfBirth").toString());
+                  enrollmentDTO.setCollege(dataObject1.get("college").toString());
+                  enrollmentDTO.setMajor(dataObject1.get("major").toString());
+                  enrollmentDTO.setGrade(dataObject1.get("grade").toString());
+                  mv.addObject("enrollment", enrollmentDTO);
+               }
+               else if(value[0].equals("diploma"))
+               {
+                  diplomaDTO.setNo(dataObject2.get("no").toString());
+                  diplomaDTO.setType(dataObject2.get("type").toString());
+                  diplomaDTO.setName(dataObject2.get("name").toString());
+                  diplomaDTO.setDateOfBirth(dataObject2.get("dateOfBirth").toString());
+                  diplomaDTO.setCollege(dataObject2.get("college").toString());
+                  diplomaDTO.setMajor(dataObject2.get("major").toString());
+                  diplomaDTO.setDateOfMatriculation(dataObject2.get("dateOfMatriculation").toString());
+                  diplomaDTO.setDateOfGraduation(dataObject2.get("dateOfGraduation").toString());
+                  diplomaDTO.setNameOfDegree(dataObject2.get("nameOfDegree").toString());
+                  diplomaDTO.setDegreeRegistrationNo(dataObject2.get("degreeRegistrationNo").toString());
+                  mv.addObject("diploma", diplomaDTO);
+               }
+            }
+            else
+            {
+               enrollmentDTO.setNo(dataObject1.get("no").toString());
+               enrollmentDTO.setType(dataObject1.get("type").toString());
+               enrollmentDTO.setName(dataObject1.get("name").toString());
+               enrollmentDTO.setDateOfBirth(dataObject1.get("dateOfBirth").toString());
+               enrollmentDTO.setCollege(dataObject1.get("college").toString());
+               enrollmentDTO.setMajor(dataObject1.get("major").toString());
+               enrollmentDTO.setGrade(dataObject1.get("grade").toString());
+               
+               diplomaDTO.setNo(dataObject2.get("no").toString());
+               diplomaDTO.setType(dataObject2.get("type").toString());
+               diplomaDTO.setName(dataObject2.get("name").toString());
+               diplomaDTO.setDateOfBirth(dataObject2.get("dateOfBirth").toString());
+               diplomaDTO.setCollege(dataObject2.get("college").toString());
+               diplomaDTO.setMajor(dataObject2.get("major").toString());
+               diplomaDTO.setDateOfMatriculation(dataObject2.get("dateOfMatriculation").toString());
+               diplomaDTO.setDateOfGraduation(dataObject2.get("dateOfGraduation").toString());
+               diplomaDTO.setNameOfDegree(dataObject2.get("nameOfDegree").toString());
+               diplomaDTO.setDegreeRegistrationNo(dataObject2.get("degreeRegistrationNo").toString());
+               mv.addObject("enrollment", enrollmentDTO);
+               mv.addObject("diploma", diplomaDTO);
+            }
+              
+         }
+         
           mv.setViewName("result");
-          //mv.addObject("diploma", );
-   	   	  //mv.addObject("enrollment",);
+         
        } catch (FileNotFoundException e) { 
           e.printStackTrace(); 
        } catch (IOException e) { 
@@ -69,6 +171,6 @@ public class CertificationController {
        }
       
 
-      return mv;
+       return mv;
    }
 }
