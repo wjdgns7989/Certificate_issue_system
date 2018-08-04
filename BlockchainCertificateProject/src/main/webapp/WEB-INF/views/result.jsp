@@ -28,6 +28,10 @@
 	<!-- body -->
 <body>
 
+	<%
+		EnrollmentDTO enrollmentDTO = (EnrollmentDTO) request.getAttribute("enrollment");
+		DiplomaDTO diplomaDTO = (DiplomaDTO) request.getAttribute("diploma");
+	%>
 
 	<div class="container">
 		<br> <br>
@@ -35,6 +39,9 @@
 		<hr>
 
 		<br>
+		<%
+			if (enrollmentDTO != null) {
+		%>
 		<table class="table table-bordered">
 			<thead class="thead-dark">
 				<tr>
@@ -49,13 +56,13 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td><%=enrollmentDTO.getNo()%></td>
+					<td><%=enrollmentDTO.getType()%></td>
+					<td><%=enrollmentDTO.getName()%></td>
+					<td><%=enrollmentDTO.getDateOfBirth()%></td>
+					<td><%=enrollmentDTO.getCollege()%></td>
+					<td><%=enrollmentDTO.getMajor()%></td>
+					<td><%=enrollmentDTO.getGrade()%></td>
 				</tr>
 				<tr>
 					<td colspan="7" class="center text-center"><span
@@ -66,8 +73,14 @@
 			</tbody>
 		</table>
 
+		<%
+			}
+		%>
 
 		<br>
+		<%
+			if (diplomaDTO != null) {
+		%>
 		<table class="table table-bordered">
 			<thead class="thead-dark">
 				<tr>
@@ -85,16 +98,16 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td><%=diplomaDTO.getNo()%></td>
+					<td><%=diplomaDTO.getType()%></td>
+					<td><%=diplomaDTO.getName()%></td>
+					<td><%=diplomaDTO.getDateOfBirth()%></td>
+					<td><%=diplomaDTO.getCollege()%></td>
+					<td><%=diplomaDTO.getMajor()%></td>
+					<td><%=diplomaDTO.getDateOfMatriculation()%></td>
+					<td><%=diplomaDTO.getDateOfGraduation()%></td>
+					<td><%=diplomaDTO.getNameOfDegree()%></td>
+					<td><%=diplomaDTO.getDegreeRegistrationNo()%></td>
 
 				</tr>
 				<tr>
@@ -106,7 +119,9 @@
 			</tbody>
 		</table>
 
-
+		<%
+			}
+		%>
 	</div>
 
 	<!-- submit -->
