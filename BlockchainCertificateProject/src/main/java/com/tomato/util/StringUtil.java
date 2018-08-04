@@ -1,4 +1,4 @@
-package com.tomato.block;
+package com.tomato.util;
 
 import java.security.MessageDigest;
 

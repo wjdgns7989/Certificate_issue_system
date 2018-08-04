@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.tomato.email.Email;
-import com.tomato.email.EmailSender;
+import com.tomato.dto.EmailDTO;
+import com.tomato.util.EmailSender;
 
    
    @Controller
@@ -17,7 +17,7 @@ import com.tomato.email.EmailSender;
       public EmailSender emailSender;
 
       @Autowired
-      public Email email;
+      public EmailDTO email;
       
       
       @RequestMapping("/emailSender")

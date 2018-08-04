@@ -1,6 +1,6 @@
-package com.tomato.email;
+package com.tomato.dto;
 
-public class Email {
+public class EmailDTO {
 	 	private String subject;
 	    private String content;
 	    private String regdate;
