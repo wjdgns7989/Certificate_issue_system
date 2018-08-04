@@ -1,24 +1,24 @@
 {
 	"certificate1":{
-		"no": "39127",
+		"no": "42357",
 		"type": "재학 증명서",
-		"name": "이하린",
-		"dateOfBirth": "1992년 06월 22일",
+		"name": "김정훈",
+		"dateOfBirth": "1994년 03월 14일",
 		"college": "소프트웨어융합대학",
 		"major": "컴퓨터공학과",
-		"grade": "4학년 재학"
+		"grade": "3학년 재학"
 	},
-
 	"certificate2":{
-		"no": "70534",
+		"no": "58367",
 		"type": "졸업 증명서",
-		"name": "이하린",
-		"dateOfBirth": "1992년 06월 22일",
+		"name": "김정훈",
+		"dateOfBirth": "1994년 03월 14일",
 		"college": "소프트웨어융합대학",
 		"major": "컴퓨터공학과",
-		"dateOfMatriculation": "2012년 03월 02일",
+		"dateOfMatriculation": "2013년 03월 02일",
 		"dateOfGraduation": "2018년 02월 18일",
 		"nameOfDegree": "공학사",
-		"degreeRegistrationNo": "세종대2018(학) 4947"
+		"degreeRegistrationNo": "세종대2018(학) 3493"
 	}
+
 }
