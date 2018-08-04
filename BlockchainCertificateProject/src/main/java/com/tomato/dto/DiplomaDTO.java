@@ -1,14 +1,30 @@
 package com.tomato.dto;
 
+/**
+ * @author hahav
+ *
+ */
 public class DiplomaDTO {
    String no;
    String type;
+   String name;
    String dateOfBirth;
    String college;
    String major;
    String dateOfMatriculation;
    String dateOfGraduation;
-   public String getNo() {
+   String nameOfDegree;
+   String degreeRegistrationNo;
+   
+   
+   
+   public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public String getNo() {
       return no;
    }
    public void setNo(String no) {
@@ -62,8 +78,6 @@ public class DiplomaDTO {
    public void setDegreeRegistrationNo(String degreeRegistrationNo) {
       this.degreeRegistrationNo = degreeRegistrationNo;
    }
-   String nameOfDegree;
-   String degreeRegistrationNo;
-   
+ 
 
 }
