@@ -1,7 +1,7 @@
 package com.tomato.dto;
 
 /**
- * @author hahav
+ * @author hahava
  *
  */
 public class DiplomaDTO {

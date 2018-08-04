@@ -31,7 +31,6 @@ public class LoginController {
 		Map<String, String> member = LoginUser.getInstance();
 		boolean loginOk = false;
 		for (String key : member.keySet()) {
-			System.out.println(member.get(key) + userDTO.getId());
 			if (key.equals(userDTO.getId())) {
 				if (member.get(key).equals(userDTO.getPasswd())) {
 					loginOk = true;
@@ -44,8 +43,8 @@ public class LoginController {
 		}
 		if (loginOk) {
 			mv.setViewName("check");
-		} 
-		//로그인 실패 시 첫 화면으로 리턴한다.
+		}
+		// 로그인 실패 시 첫 화면으로 리턴한다.
 		else {
 			mv.setViewName("login");
 			mv.addObject("login", false);

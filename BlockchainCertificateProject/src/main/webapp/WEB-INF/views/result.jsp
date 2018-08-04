@@ -144,8 +144,8 @@
 					</script>
 				</div>
 			</div>
+		</form>
 	</div>
-	</form>
 
 
 	<script type="text/javascript">
