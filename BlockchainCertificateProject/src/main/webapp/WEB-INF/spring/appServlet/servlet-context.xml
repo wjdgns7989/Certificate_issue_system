@@ -27,9 +27,9 @@
 	</beans:bean>
 
 
-	<beans:bean id="email" class="com.tomato.email.Email"></beans:bean>
-	<beans:bean id="emailSender"
-		class="com.tomato.email.EmailSender"></beans:bean>
+	<beans:bean id="email" class="com.tomato.dto.EmailDTO"></beans:bean>
+
+	<beans:bean id="emailSender" class="com.tomato.util.EmailSender"></beans:bean>
 
 	<beans:bean id="mailSender"
 		class="org.springframework.mail.javamail.JavaMailSenderImpl">

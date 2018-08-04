@@ -4,7 +4,7 @@
 	pageEncoding="utf-8"%>
 <html>
 <head>
-<title>Title</title>
+<title>세종대학교</title>
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport"
@@ -21,11 +21,8 @@
 
 	<!-- nav -->
 	<nav class="nav bg-dark">
-		<a class="navbar-brand" href="#"> <img src="/img/logo.png"
-			width="30" height="30" alt="">
-		</a>
+		<a class="nav-link active" href="#">세종대학교</a>
 	</nav>
-
 
 
 	<!-- body -->
@@ -39,10 +36,8 @@
 			</p>
 			<hr class="my-2">
 			<p class="lead">
-				<a class="btn btn-primary " href="loginPage" role="button">증명서
-					발급</a> <a class="btn btn-success " href="Jumbo action link"
-					role="button">증명서 인증</a>
-
+				<a class="btn btn-primary " href="loginPage.do" role="button">증명서
+					발급</a>
 			</p>
 		</div>
 	</div>

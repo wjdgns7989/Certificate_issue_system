@@ -23,17 +23,15 @@
 		if ((Boolean) request.getAttribute("login") != null) {
 	%>
 	<script type="text/javascript">
-				
-					alert("아이디 또는 비밀번호가 틀렸습니다.")	
-				
-				</script>
+		alert("아이디 또는 비밀번호가 틀렸습니다.")
+	</script>
 	<%
 		}
 	%>
 
 	<!-- nav -->
 	<nav class="nav bg-dark">
-		<a class="nav-link active" href="#">세종대 로고</a>
+		<a class="nav-link active" href="#">세종대학교</a>
 	</nav>
 
 	<!-- body -->
@@ -52,27 +50,8 @@
 					type="password" class="form-control" id="exampleInputPassword1"
 					placeholder="패스워드를 입력해주세요">
 			</div>
-			<button class="btn btn-primary" onclick='login()'>로그인</button>
-			<script type="text/JavaScript">
-                function login() {
-                    var form_data={
-                        id:$('#id').val(),
-                        passwd=$('#passwd').val()
-                    };
+			<button class="btn btn-primary float-right">로그인</button>
 
-                    alert(form_data)
-                    $ajax({
-                        type:'POST',
-                        dataType:'json',
-                        url:'loginCheck.do',
-                        data:JSON.stringify(form_data),
-                        success: function(data) {  alert("성공:"+data.KEY);},
-        error:function(request,status,error){
-                alert("code:"+request.status+"\n"+"error:"+error);}
-
-                    });
-                }
-                </script>
 		</form>
 	</div>
 
