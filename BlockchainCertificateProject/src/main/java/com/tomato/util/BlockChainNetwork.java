@@ -20,6 +20,17 @@ public class BlockChainNetwork {
 		if (block.containsKey(hashKey) && block.get(hashKey).equals(hashValue)) {
 			hasHashvalue = true;
 		}
+		System.out.println(hasHashvalue);
+
+		
+		for(String keyset:block.keySet()) {
+			System.out.println(keyset+block.get(keyset));
+		}
+		System.out.println("====================");
+
+		
+		System.out.println(hashKey+hashValue);
+		
 		return hasHashvalue;
 	}
 

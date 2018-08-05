@@ -5,6 +5,10 @@
 <%@page import="com.tomato.dto.EnrollmentDTO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<c:set var="req" value="${pageContext.request}" />
+
 <html>
 
 <head>
@@ -33,6 +37,15 @@
 	<%
 		EnrollmentDTO enrollmentDTO = (EnrollmentDTO) request.getAttribute("enrollment");
 		DiplomaDTO diplomaDTO = (DiplomaDTO) request.getAttribute("diploma");
+		String time = (String) request.getAttribute("time_data");
+		
+		session.setAttribute("check_enrollment", enrollmentDTO);
+		session.setAttribute("check_diploma", diplomaDTO);
+		session.setAttribute("check_time", time);
+	%>
+
+	<%
+		
 	%>
 
 	<div class="container">
@@ -65,12 +78,6 @@
 					<td class="small"><%=enrollmentDTO.getCollege()%></td>
 					<td class="small"><%=enrollmentDTO.getMajor()%></td>
 					<td class="small"><%=enrollmentDTO.getGrade()%></td>
-				</tr>
-				<tr>
-					<td colspan="7" class="center text-center"><span
-						class="d-inline-block text-center "> 2000.00.00 위 사람은
-							세종대학교에 재학 중임이 증명되었습니다. <img src="#none" alt="세종대로고">
-					</span></td>
 				</tr>
 			</tbody>
 		</table>
@@ -111,12 +118,6 @@
 					<td class="small"><%=diplomaDTO.getNameOfDegree()%></td>
 					<td class="small"><%=diplomaDTO.getDegreeRegistrationNo()%></td>
 				</tr>
-				<tr>
-					<td colspan="10" class="center text-center"><span
-						class="d-inline-block text-center "> 위 사람은 세종대학교에서 졸업했음이
-							증명되었습니다. <img src="#none" alt="세종대로고">
-					</span></td>
-				</tr>
 			</tbody>
 		</table>
 
@@ -128,17 +129,12 @@
 	<!-- submit -->
 	<div class="container">
 		<hr>
-		<form method="post" action="emailSender">
+		<form method="get" action="${req.contextPath}/resultCheck.do">
 			<div class="row">
 
 				<div class="col">
 					<input class="btn btn-primary float-right" type="submit"
 						value="인증 요청">
-					<script type="text/javascript">
-						function result() {
-							alert("발급이 완료되었습니다.");
-						}
-					</script>
 				</div>
 			</div>
 		</form>
