@@ -55,18 +55,7 @@
 					<div class="col-2">
 						<a class="btn btn-primary float-right" value="제출"
 							onclick='checkbox();return false' style="color: white;">신청</a>
-						<script type="text/javascript">
-							function checkbox() {
-								var certification_value = document.form.checkbox[0].checked;
-								var diploma_value = document.form.checkbox[1].checked;
-								if (!certification_value && !diploma_value) {
-									alert('하나 이상을 체크 해주세요!')
-									return;
-								} else {
-									form.submit();
-								}
-							}
-						</script>
+
 					</div>
 				</div>
 			</form>
@@ -74,6 +63,20 @@
 	</div>
 
 	<!-- Optional JavaScript -->
+	
+	<% // 체크박스 null 체크 %>
+	<script type="text/javascript">
+		function checkbox() {
+			var certification_value = document.form.checkbox[0].checked;
+			var diploma_value = document.form.checkbox[1].checked;
+			if (!certification_value && !diploma_value) {
+				alert('하나 이상을 체크 해주세요!')
+				return;
+			} else {
+				form.submit();
+			}
+		}
+	</script>
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

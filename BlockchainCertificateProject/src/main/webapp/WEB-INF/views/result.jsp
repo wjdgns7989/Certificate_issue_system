@@ -1,4 +1,6 @@
 <!doctype html>
+<%@page import="java.util.Calendar"%>
+<%@page import="java.util.Date"%>
 <%@page import="com.tomato.dto.DiplomaDTO"%>
 <%@page import="com.tomato.dto.EnrollmentDTO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
@@ -56,13 +58,13 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><%=enrollmentDTO.getNo()%></td>
-					<td><%=enrollmentDTO.getType()%></td>
-					<td><%=enrollmentDTO.getName()%></td>
-					<td><%=enrollmentDTO.getDateOfBirth()%></td>
-					<td><%=enrollmentDTO.getCollege()%></td>
-					<td><%=enrollmentDTO.getMajor()%></td>
-					<td><%=enrollmentDTO.getGrade()%></td>
+					<td class="small"><%=enrollmentDTO.getNo()%></td>
+					<td class="small"><%=enrollmentDTO.getType()%></td>
+					<td class="small"><%=enrollmentDTO.getName()%></td>
+					<td class="small"><%=enrollmentDTO.getDateOfBirth()%></td>
+					<td class="small"><%=enrollmentDTO.getCollege()%></td>
+					<td class="small"><%=enrollmentDTO.getMajor()%></td>
+					<td class="small"><%=enrollmentDTO.getGrade()%></td>
 				</tr>
 				<tr>
 					<td colspan="7" class="center text-center"><span
@@ -98,22 +100,21 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><%=diplomaDTO.getNo()%></td>
-					<td><%=diplomaDTO.getType()%></td>
-					<td><%=diplomaDTO.getName()%></td>
-					<td><%=diplomaDTO.getDateOfBirth()%></td>
-					<td><%=diplomaDTO.getCollege()%></td>
-					<td><%=diplomaDTO.getMajor()%></td>
-					<td><%=diplomaDTO.getDateOfMatriculation()%></td>
-					<td><%=diplomaDTO.getDateOfGraduation()%></td>
-					<td><%=diplomaDTO.getNameOfDegree()%></td>
-					<td><%=diplomaDTO.getDegreeRegistrationNo()%></td>
-
+					<td class="small"><%=diplomaDTO.getNo()%></td>
+					<td class="small"><%=diplomaDTO.getType()%></td>
+					<td class="small"><%=diplomaDTO.getName()%></td>
+					<td class="small"><%=diplomaDTO.getDateOfBirth()%></td>
+					<td class="small"><%=diplomaDTO.getCollege()%></td>
+					<td class="small"><%=diplomaDTO.getMajor()%></td>
+					<td class="small"><%=diplomaDTO.getDateOfMatriculation()%></td>
+					<td class="small"><%=diplomaDTO.getDateOfGraduation()%></td>
+					<td class="small"><%=diplomaDTO.getNameOfDegree()%></td>
+					<td class="small"><%=diplomaDTO.getDegreeRegistrationNo()%></td>
 				</tr>
 				<tr>
 					<td colspan="10" class="center text-center"><span
-						class="d-inline-block text-center "> 2000.00.00 위 사람은
-							세종대학교에서 졸업했음이 증명되었습니다. <img src="#none" alt="세종대로고">
+						class="d-inline-block text-center "> 위 사람은 세종대학교에서 졸업했음이
+							증명되었습니다. <img src="#none" alt="세종대로고">
 					</span></td>
 				</tr>
 			</tbody>
@@ -136,7 +137,8 @@
 			<div class="row">
 
 				<div class="col">
-					<input class="btn float-right" type="submit" value="인증 요청">
+					<input class="btn btn-primary float-right" type="submit"
+						value="인증 요청">
 					<script type="text/javascript">
 						function result() {
 							alert("발급이 완료되었습니다.");

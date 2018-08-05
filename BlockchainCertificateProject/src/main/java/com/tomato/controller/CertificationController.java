@@ -1,29 +1,17 @@
 package com.tomato.controller;
 
-import java.util.Arrays;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.google.gson.stream.JsonReader;
 import com.tomato.dto.DiplomaDTO;
 import com.tomato.dto.EnrollmentDTO;
-import com.tomato.dto.UserDTO;
-import com.tomato.util.LoginUser;
-
+import com.tomato.util.BlockChainNetwork;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.Map;
-
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -41,7 +29,7 @@ public class CertificationController {
 	@RequestMapping(value = "/boxcheck.do")
 	public ModelAndView boxCheck(HttpServletRequest request) {
 
-		UserDTO userDTO = new UserDTO();
+		String userId = request.getSession().getAttribute("loginOk").toString();
 		DiplomaDTO diplomaDTO = new DiplomaDTO();
 		EnrollmentDTO enrollmentDTO = new EnrollmentDTO();
 		ModelAndView mv = new ModelAndView();
@@ -56,8 +44,7 @@ public class CertificationController {
 
 		try {
 			// id에 해당하는 json 파일을 파싱한다.
-			Object obj = parser.parse(new FileReader(
-					request.getRealPath("/resources/json/") + request.getSession().getAttribute("loginOk").toString() + ".json"));
+			Object obj = parser.parse(new FileReader(request.getRealPath("/resources/json/") + userId + ".json"));
 			JSONObject jsonObject = (JSONObject) obj;
 			JSONObject dataObject1 = (JSONObject) jsonObject.get("certificate1");
 			JSONObject dataObject2 = (JSONObject) jsonObject.get("certificate2");
@@ -93,11 +80,12 @@ public class CertificationController {
 					break;
 				}
 			} // for
-			
-			/* 해쉬 값 만드는 부분 추가 해야 함
-			 * makeHash();
-			 *  */
 
+			/*
+			 * 해쉬 값 만드는 부분 추가 해야 함 makeHash();
+			 */
+
+			BlockChainNetwork.addHashMap("userId", enrollmentDTO.toString() + diplomaDTO.toString());
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

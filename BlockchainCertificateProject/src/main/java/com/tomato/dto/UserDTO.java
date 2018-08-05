@@ -2,7 +2,6 @@ package com.tomato.dto;
 
 import org.springframework.stereotype.Repository;
 
-@Repository
 public class UserDTO {
 	String id;
 	String passwd;
