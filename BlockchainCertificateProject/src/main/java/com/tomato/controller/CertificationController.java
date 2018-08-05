@@ -9,6 +9,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.tomato.dto.DiplomaDTO;
 import com.tomato.dto.EnrollmentDTO;
 import com.tomato.util.BlockChainNetwork;
+import com.tomato.util.StringUtil;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -36,7 +38,7 @@ public class CertificationController {
 		JSONParser parser = new JSONParser();
 		String[] value = request.getParameterValues("checkbox");
 
-		// 체크 박스에 체크가 하나 이상 되지 않을 경우 리턴한다.
+		// 체크 박스에 체크가 하나 이상 되지 않을 경우 리턴한다. (자바스크립트가 적용안될 경우 대비)
 		if (value == null) {
 			mv.setViewName("check");
 			return mv;
@@ -81,11 +83,9 @@ public class CertificationController {
 				}
 			} // for
 
-			/*
-			 * 해쉬 값 만드는 부분 추가 해야 함 makeHash();
-			 */
-
-			BlockChainNetwork.addHashMap("userId", enrollmentDTO.toString() + diplomaDTO.toString());
+			String time = StringUtil.getDateTime();
+			// 블록체인에 timestamp를 붙여서 등록한다.
+			BlockChainNetwork.addHashMap(time + userId, time + enrollmentDTO.toString() + diplomaDTO.toString());
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

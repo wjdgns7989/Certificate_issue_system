@@ -1,6 +1,7 @@
 package com.tomato.util;
 
 import java.security.MessageDigest;
+import java.time.LocalDateTime;
 
 public class StringUtil {
 	// Applies Sha256 to a string and returns the result.
@@ -21,4 +22,15 @@ public class StringUtil {
 			throw new RuntimeException(e);
 		}
 	}
+
+	public static String getDateTime() {
+		LocalDateTime currentDateTime = LocalDateTime.now();
+		String time = String.valueOf(currentDateTime.getYear()) + "-" + String.valueOf(currentDateTime.getMonthValue())
+				+ "-" + String.valueOf(currentDateTime.getDayOfMonth()) + " "
+				+ String.valueOf(currentDateTime.getHour()) + ":" + String.valueOf(currentDateTime.getMinute()) + ":"
+				+ String.valueOf(currentDateTime.getSecond());
+
+		return time;
+	}
+
 }
