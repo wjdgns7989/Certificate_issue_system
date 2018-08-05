@@ -2,15 +2,21 @@ package com.tomato.controller;
 
 import java.util.Map;
 import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import com.tomato.dto.UserDTO;
+import com.tomato.service.LoginService;
 import com.tomato.util.LoginUser;
 
 @Controller
 public class LoginController {
+
+	@Autowired
+	LoginService loginService;
 
 	// index페이지 요청
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -26,23 +32,12 @@ public class LoginController {
 
 	// 로그인 확인
 	@RequestMapping(value = "/loginCheck.do", method = RequestMethod.POST)
-	public ModelAndView loginCheck(UserDTO userDTO, HttpSession session) {
-		ModelAndView mv = new ModelAndView();
-		Map<String, String> member = LoginUser.getInstance();
-		boolean loginOk = false;
-		for (String key : member.keySet()) {
-			if (key.equals(userDTO.getId())) {
-				if (member.get(key).equals(userDTO.getPasswd())) {
-					loginOk = true;
-					// 로그인 세션추가
-					session.setAttribute("loginOk", userDTO.getId());
-					break;
-				}
-
-			}
-		}
+	public ModelAndView loginCheck(UserDTO userDTO, HttpSession session, ModelAndView mv) {
+		boolean loginOk = loginService.loginCheck(userDTO);
 		if (loginOk) {
 			mv.setViewName("check");
+			// 로그인 세션추가
+			session.setAttribute("loginOk", userDTO.getId());
 		}
 		// 로그인 실패 시 첫 화면으로 리턴한다.
 		else {
