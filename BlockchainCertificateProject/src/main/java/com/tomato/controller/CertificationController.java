@@ -27,6 +27,8 @@ public class CertificationController {
 	@RequestMapping(value = "certification.do/diploma/{diploma_data}/enrollment/{enrollment_data}", method = RequestMethod.GET)
 	public ModelAndView certification(@PathVariable String diploma_data, @PathVariable String enrollment_data,
 			ModelAndView mv) {
+		System.out.println(diploma_data);
+		System.out.println(enrollment_data);
 		if (!diploma_data.equals("null")) {
 			JsonParser parser = new JsonParser();
 			Object tempDiploma = parser.parse(diploma_data);
