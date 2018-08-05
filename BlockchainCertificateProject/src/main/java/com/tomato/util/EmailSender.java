@@ -37,7 +37,7 @@ public class EmailSender  {
        return "All";
     }
  
-    public void SendEmail(EmailDTO email, EnrollmentDTO enrollment, DiplomaDTO diploma) throws Exception {
+    public void SendEmail(EmailDTO email, EnrollmentDTO enrollment, DiplomaDTO diploma, String time) throws Exception {
          
        MimeMessage msg = mailSender.createMimeMessage();
        Gson gson=new Gson();
@@ -58,7 +58,7 @@ public class EmailSender  {
                                 "    height: 50%;\">\r\n" + 
                                 "    <h1 style=\"font-size:22px\">" + diploma.getName() + " " + diploma.getType() +"</h1><br><br><br>\r\n" + 
                                 "    <p style=\"font-size:18px; \">증명서를 확인해주세요.</p>\r\n" + 
-                                "    <a href=\"http://localhost:8080/blockchain/certification.do/diploma/" + DiplomaResult +"/enrollment/null\">인증</a>\r\n" +
+                                "    <a href=\'http://localhost:8080/blockchain/certification.do/diploma/" + DiplomaResult +"/enrollment/null/time/" + time + "\'>인증</a>\r\n" +
                                 "    <input type=\"submit\" value=\"인증\" style=\"background-color: gray;\r\n" + 
                                 "    border: none;\r\n" + 
                                 "    color: white;\r\n" + 
@@ -84,7 +84,7 @@ public class EmailSender  {
                         "    height: 50%;\">\r\n" + 
                         "    <h1 style=\"font-size:22px\">" + enrollment.getName() + " " + enrollment.getType() +"</h1><br><br><br>\r\n" + 
                         "    <p style=\"font-size:18px; \">증명서를 확인해주세요.</p>\r\n" + 
-                        "    <a href=\'http://localhost:8080/blockchain/certification.do/diploma/null/enrollment/" + EnrollmentResult + "\'>인증</a>\r\n" +
+                        "    <a href=\'http://localhost:8080/blockchain/certification.do/diploma/null/enrollment/" + EnrollmentResult + "/time/" + time + "\'>인증</a>\r\n" +
                         "    <input type=\"submit\" value=\"인증\" style=\"background-color: gray;\r\n" + 
                         "    border: none;\r\n" + 
                         "    color: white;\r\n" + 
@@ -110,7 +110,7 @@ public class EmailSender  {
                         "    height: 50%;\">\r\n" + 
                         "    <h1 style=\"font-size:22px\">" + enrollment.getName() + " " + enrollment.getType() +"</h1><br><br><br>\r\n" + 
                         "    <p style=\"font-size:18px; \">증명서를 확인해주세요.</p>\r\n" + 
-                        "    <a href=\"http://localhost:8080/blockchain/certification.do/diploma/" + DiplomaResult + "/enrollment/" + EnrollmentResult + "\">인증</a>\r\n" +
+                        "    <a href=\'http://localhost:8080/blockchain/certification.do/diploma/" + DiplomaResult + "/enrollment/" + EnrollmentResult + "/time/" + time + "\'>인증</a>\r\n" +
                         "    <input type=\"submit\" value=\"인증\" style=\"background-color: gray;\r\n" + 
                         "    border: none;\r\n" + 
                         "    color: white;\r\n" + 
@@ -130,7 +130,7 @@ public class EmailSender  {
                         "    height: 50%;\">\r\n" + 
                         "    <h1 style=\"font-size:22px\">" + diploma.getName() + " " + diploma.getType() +"</h1><br><br><br>\r\n" + 
                         "    <p style=\"font-size:18px; \">증명서를 확인해주세요.</p>\r\n" + 
-                        "    <a href=\"http://localhost:8080/blockchain/certification.do/diploma/" + DiplomaResult + "/enrollment/" + EnrollmentResult + "\">인증</a>\r\n" +
+                        "    <a href=\'http://localhost:8080/blockchain/certification.do/diploma/" + DiplomaResult + "/enrollment/" + EnrollmentResult + "/time/" + time + "\'>인증</a>\r\n" +
                         "    <input type=\"submit\" value=\"인증\" style=\"background-color: gray;\r\n" + 
                         "    border: none;\r\n" + 
                         "    color: white;\r\n" + 

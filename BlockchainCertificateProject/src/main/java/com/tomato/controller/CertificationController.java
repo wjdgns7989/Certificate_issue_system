@@ -24,12 +24,13 @@ public class CertificationController {
 	CertificationService certificationService;
 
 	// json 데이터를 get방식으로 받아와서 뷰를 만들어준다.
-	@RequestMapping(value = "certification.do/diploma/{diploma_data}/enrollment/{enrollment_data}", method = RequestMethod.GET)
-	public ModelAndView certification(@PathVariable String diploma_data, @PathVariable String enrollment_data,
+	@RequestMapping(value = "certification.do/diploma/{diploma_data}/enrollment/{enrollment_data}/time/{time_data}", method = RequestMethod.GET)
+	public ModelAndView certification(@PathVariable String diploma_data, @PathVariable String enrollment_data, @PathVariable String time_data,
 			ModelAndView mv) {
 		System.out.println(diploma_data);
 		System.out.println(enrollment_data);
-		if (!diploma_data.equals("null")) {
+		System.out.println(time_data);
+		/*if (!diploma_data.equals("null")) {
 			JsonParser parser = new JsonParser();
 			Object tempDiploma = parser.parse(diploma_data);
 			DiplomaDTO diplomaDTO = null;
@@ -39,7 +40,7 @@ public class CertificationController {
 		if (!enrollment_data.equals("null")) {
 			EnrollmentDTO enrollmentDTO = null;
 			mv.addObject("enrollment", enrollmentDTO);
-		}
+		}*/
 
 		mv.setViewName("checker");
 		return mv;
@@ -80,6 +81,7 @@ public class CertificationController {
 			// 블록체인에 timestamp를 붙여서 등록한다.
 			BlockChainNetwork.addHashMap(time + userId, time + enrollmentDTO.toString() + diplomaDTO.toString());
 			mv.addObject("timestamp", time);
+			request.getSession().setAttribute("time", time);
 		}
 		// 결과 값을 result.jsp로 리턴한다.
 		mv.setViewName("result");

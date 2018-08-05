@@ -29,16 +29,17 @@ import com.tomato.util.EmailSender;
          String email = request.getParameter("sender");
          EnrollmentDTO enrollment = (EnrollmentDTO)request.getSession().getAttribute("enrollment");
          DiplomaDTO diploma = (DiplomaDTO) request.getSession().getAttribute("diploma");
+         String time=(String) request.getSession().getAttribute("time");
 
-         sendEmailToManager(email, enrollment, diploma);
+         sendEmailToManager(email, enrollment, diploma, time);
          return page;
       }
       
-      public void sendEmailToManager(String emailReceiver, EnrollmentDTO enrollment, DiplomaDTO diploma) throws Exception {
+      public void sendEmailToManager(String emailReceiver, EnrollmentDTO enrollment, DiplomaDTO diploma, String time) throws Exception {
            // do something
             email.setReciver(emailReceiver);
             email.setSubject("세종대학교 증명 발급 신청");
             //email.setContent("aaaa");
-            emailSender.SendEmail(email, enrollment, diploma);
+            emailSender.SendEmail(email, enrollment, diploma, time);
        }
 }

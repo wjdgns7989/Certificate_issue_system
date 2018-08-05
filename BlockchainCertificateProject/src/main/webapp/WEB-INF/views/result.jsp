@@ -35,6 +35,7 @@
 		DiplomaDTO diplomaDTO = (DiplomaDTO) request.getAttribute("diploma");
 		session.setAttribute("enrollment", enrollmentDTO);
 	    session.setAttribute("diploma", diplomaDTO);
+
 	%>
 
 	<div class="container">
