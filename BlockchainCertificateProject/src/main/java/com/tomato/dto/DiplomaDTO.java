@@ -1,5 +1,7 @@
 package com.tomato.dto;
 
+import org.json.simple.JSONObject;
+
 /**
  * @author hahava
  *
@@ -102,6 +104,21 @@ public class DiplomaDTO {
 				+ ", college=" + college + ", major=" + major + ", dateOfMatriculation=" + dateOfMatriculation
 				+ ", dateOfGraduation=" + dateOfGraduation + ", nameOfDegree=" + nameOfDegree
 				+ ", degreeRegistrationNo=" + degreeRegistrationNo + "]";
+	}
+
+	public static DiplomaDTO getJsonToDto(JSONObject dataObject) {
+		DiplomaDTO diplomaDTO = new DiplomaDTO();
+		diplomaDTO.setNo(dataObject.get("no").toString());
+		diplomaDTO.setType(dataObject.get("type").toString());
+		diplomaDTO.setName(dataObject.get("name").toString());
+		diplomaDTO.setDateOfBirth(dataObject.get("dateOfBirth").toString());
+		diplomaDTO.setCollege(dataObject.get("college").toString());
+		diplomaDTO.setMajor(dataObject.get("major").toString());
+		diplomaDTO.setDateOfMatriculation(dataObject.get("dateOfMatriculation").toString());
+		diplomaDTO.setDateOfGraduation(dataObject.get("dateOfGraduation").toString());
+		diplomaDTO.setNameOfDegree(dataObject.get("nameOfDegree").toString());
+		diplomaDTO.setDegreeRegistrationNo(dataObject.get("degreeRegistrationNo").toString());
+		return diplomaDTO;
 	}
 
 }

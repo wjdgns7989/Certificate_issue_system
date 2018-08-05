@@ -1,6 +1,5 @@
 package com.tomato.dto;
 
-import org.springframework.stereotype.Repository;
 
 public class UserDTO {
 	String id;

@@ -2,12 +2,15 @@ package com.tomato.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.google.gson.JsonParser;
 import com.tomato.dto.DiplomaDTO;
 import com.tomato.dto.EnrollmentDTO;
 import com.tomato.service.CertificationService;
@@ -25,6 +28,8 @@ public class CertificationController {
 	public ModelAndView certification(@PathVariable String diploma_data, @PathVariable String enrollment_data,
 			ModelAndView mv) {
 		if (!diploma_data.equals("null")) {
+			JsonParser parser = new JsonParser();
+			Object tempDiploma = parser.parse(diploma_data);
 			DiplomaDTO diplomaDTO = null;
 			mv.addObject("diploma", diplomaDTO);
 		}
