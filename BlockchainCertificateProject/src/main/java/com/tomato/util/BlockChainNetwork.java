@@ -11,13 +11,16 @@ public class BlockChainNetwork {
 		block.put(StringUtil.applySha256(key), StringUtil.applySha256(value));
 	}
 
+	// key 와 value에는 timeStamp를 붙여서 보내야 한다.
 	public static boolean checkMap(String key, String value) {
-
-		for (String mapKey : block.keySet()) {
-			
+		boolean hasHashvalue = false;
+		// key와 value가 전부 맞는 것을 찾는다.
+		String hashKey = StringUtil.applySha256(key);
+		String hashValue = StringUtil.applySha256(value);
+		if (block.containsKey(hashKey) && block.get(hashKey).equals(hashValue)) {
+			hasHashvalue = true;
 		}
-
-		return true;
+		return hasHashvalue;
 	}
 
 }

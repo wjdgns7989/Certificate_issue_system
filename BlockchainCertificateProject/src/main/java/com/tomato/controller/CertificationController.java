@@ -14,17 +14,28 @@ import com.tomato.service.CertificationService;
 import com.tomato.util.BlockChainNetwork;
 import com.tomato.util.StringUtil;
 
-
 @Controller
 public class CertificationController {
 
 	@Autowired
 	CertificationService certificationService;
 
+	// json 데이터를 get방식으로 받아와서 뷰를 만들어준다.
 	@RequestMapping(value = "certification.do/diploma/{diploma_data}/enrollment/{enrollment_data}", method = RequestMethod.GET)
-	public String certification(@PathVariable String diploma_data, @PathVariable String enrollment_data) {
-		System.out.println(diploma_data + "\t");
-		return null;
+	public ModelAndView certification(@PathVariable String diploma_data, @PathVariable String enrollment_data,
+			ModelAndView mv) {
+		if (!diploma_data.equals("null")) {
+			DiplomaDTO diplomaDTO = null;
+			mv.addObject("diploma", diplomaDTO);
+		}
+
+		if (!enrollment_data.equals("null")) {
+			EnrollmentDTO enrollmentDTO = null;
+			mv.addObject("enrollment", enrollmentDTO);
+		}
+
+		mv.setViewName("checker");
+		return mv;
 	}
 
 	// 체크박스에 체크가 되어 있는 항목을 json파일에서 파싱한다.(재학, 졸업 증명)
@@ -61,6 +72,7 @@ public class CertificationController {
 			String time = StringUtil.getDateTime();
 			// 블록체인에 timestamp를 붙여서 등록한다.
 			BlockChainNetwork.addHashMap(time + userId, time + enrollmentDTO.toString() + diplomaDTO.toString());
+			mv.addObject("timestamp", time);
 		}
 		// 결과 값을 result.jsp로 리턴한다.
 		mv.setViewName("result");
