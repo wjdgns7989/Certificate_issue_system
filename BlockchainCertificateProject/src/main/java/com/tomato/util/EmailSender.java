@@ -50,47 +50,52 @@ public class EmailSender  {
                //System.out.println(DiplomaResult);
                msg.setText(
                      "<section>\r\n" + 
-                                "  <article style=\"float: left;\r\n" + 
-                                "    padding: 20px;\r\n" + 
-                                "    width: 40%;\r\n" + 
-                                "    border: 3px solid black;\r\n" +
-                                "    height: 50%;\">\r\n" + 
-                                "    <h1 style=\"font-size:22px\">" + diploma.getName() + " " + diploma.getType() +"</h1><br><br><br>\r\n" + 
-                                "    <p style=\"font-size:18px; \">증명서를 확인해주세요.</p>\r\n" + 
-                                "    <a style=\"background-color: #00B4DB;\r\n" + 
-                                "    color: white;\r\n" + 
-                                "    padding: 14px 25px;\r\n" + 
-                                "    text-align: center;\r\n" + 
-                                "    text-decoration: none;\r\n" + 
-                                "    display: inline-block;\" href=\'http://localhost:8080/blockchain/certification.do/diploma/" + DiplomaResult +"/enrollment/null/time/" + time + "\'>인증</a>\r\n" + 
-                                "  </article>\r\n" + 
-                                "</section>\r\n"
+                     "  <article style=\"float: left;  padding: 20px; width: 40%; border: 0.5px solid black; height: 50%;\">\r\n" + 
+                     "      <a href=\"http://www.sejong.ac.kr\" > <img src=\"http://sejong.ac.kr/img/common/h1_top_logo01.gif\" alt=\"Sejong\" height=\"25%\" width=\"25%\">      </a>\r\n" + 
+                     "\r\n" + 
+                     "        <h1>" + diploma.getName()+ " / " + diploma.getMajor() + "</h1>\r\n" + 
+                     "        <hr>\r\n" + 
+                     "        <p style=\"font-weight:bold; display:inline; font-size:12px\">전화 : </p>\r\n" + 
+                     "        <p style=\"display:inline; font-size:12px\">02-3408-3114</p>\r\n" + 
+                     "        <br>\r\n" + 
+                     "        <p style=\"font-weight:bold; display:inline; font-size:12px\">FAX : </p>\r\n" + 
+                     "        <a style=\"background-color: #00B4DB; color: white; padding: 8px 25px; text-align: center; text-decoration: none; display: inline-block; float:right; font-weight:bold;\" href=\'http://localhost:8080/blockchain/certification.do/diploma/" + DiplomaResult + "/enrollment/null/time/" + time + "\'>인증</a>\r\n" + 
+                     "\r\n" + 
+                     "        <p style=\"display:inline; font-size:12px\">02-6935-2419</p>\r\n" + 
+                     "        <br>\r\n" + 
+                     "        <p style=\"font-weight:bold; display:inline; font-size:12px\">E-mail : </p>\r\n" + 
+                     "        <p style=\"display:inline; font-size:12px\">sw6@sejong.ac.kr</p>\r\n" + 
+                     "\r\n" + 
+                     "  </article>\r\n" + 
+                     "</section>"
                                 , "UTF-8", "html");
             }
+            
             else if(checkEmailNULL(enrollment, diploma)=="Enrollment")
             {
                String EnrollmentResult=gson.toJson(enrollment);
                System.out.println(EnrollmentResult);
                msg.setText(    
-                      "<section>\r\n" + 
-                        "  <article style=\"float: left;\r\n" + 
-                        "    padding: 20px;\r\n" + 
-                        "    width: 70%;\r\n" + 
-                        "    border: 3px solid black;\r\n" +
-                        "    background-color: #f1f1f1;\r\n" + 
-                        "    height: 50%;\">\r\n" + 
-                        "    <h1 style=\"font-size:22px\">" + enrollment.getName() + " " + enrollment.getType() +"</h1><br><br><br>\r\n" + 
-                        "    <p style=\"font-size:18px; \">증명서를 확인해주세요.</p>\r\n" + 
-                        "    <a href=\'http://localhost:8080/blockchain/certification.do/diploma/null/enrollment/" + EnrollmentResult + "/time/" + time + "\'>인증</a>\r\n" +
-                        "    <input type=\"submit\" value=\"인증\" style=\"background-color: gray;\r\n" + 
-                        "    border: none;\r\n" + 
-                        "    color: white;\r\n" + 
-                        "    padding: 16px 32px;\r\n" + 
-                        "    text-decoration: none;\r\n" + 
-                        "    margin: 4px 2px;\r\n" + 
-                        "    cursor: pointer; \">" +
-                        "  </article>\r\n" + 
-                        "</section>\r\n", "UTF-8", "html");
+            		   "<section>\r\n" + 
+                               "  <article style=\"float: left;  padding: 20px; width: 40%; border: 0.5px solid black; height: 50%;\">\r\n" + 
+                               "      <a href=\"http://www.sejong.ac.kr\" > <img src=\"http://sejong.ac.kr/img/common/h1_top_logo01.gif\" alt=\"Sejong\" height=\"25%\" width=\"25%\">      </a>\r\n" + 
+                               "\r\n" + 
+                               "        <h1>" + enrollment.getName()+ " / " + enrollment.getMajor() + "</h1>\r\n" + 
+                               "        <hr>\r\n" + 
+                               "        <p style=\"font-weight:bold; display:inline; font-size:12px\">전화 : </p>\r\n" + 
+                               "        <p style=\"display:inline; font-size:12px\">02-3408-3114</p>\r\n" + 
+                               "        <br>\r\n" + 
+                               "        <p style=\"font-weight:bold; display:inline; font-size:12px\">FAX : </p>\r\n" + 
+                               "        <a style=\"background-color: #00B4DB; color: white; padding: 8px 25px; text-align: center; text-decoration: none; display: inline-block; float:right; font-weight:bold;\" href=\'http://localhost:8080/blockchain/certification.do/diploma/null/enrollment/" + EnrollmentResult + "/time/" + time + "\'>인증</a>\r\n" +
+                               "\r\n" + 
+                               "        <p style=\"display:inline; font-size:12px\">02-6935-2419</p>\r\n" + 
+                               "        <br>\r\n" + 
+                               "        <p style=\"font-weight:bold; display:inline; font-size:12px\">E-mail : </p>\r\n" + 
+                               "        <p style=\"display:inline; font-size:12px\">sw6@sejong.ac.kr</p>\r\n" + 
+                               "\r\n" + 
+                               "  </article>\r\n" + 
+                               "</section>"
+                               , "UTF-8", "html");
             }
             else
             {
@@ -98,45 +103,25 @@ public class EmailSender  {
                String DiplomaResult=gson.toJson(diploma);
                
                msg.setText(    
-                      "<section>\r\n" + 
-                        "  <article style=\"float: left;\r\n" + 
-                        "    padding: 20px;\r\n" + 
-                        "    width: 70%;\r\n" + 
-                        "    border: 3px solid black;\r\n" +
-                        "    background-color: #f1f1f1;\r\n" + 
-                        "    height: 50%;\">\r\n" + 
-                        "    <h1 style=\"font-size:22px\">" + enrollment.getName() + " " + enrollment.getType() +"</h1><br><br><br>\r\n" + 
-                        "    <p style=\"font-size:18px; \">증명서를 확인해주세요.</p>\r\n" + 
-                        "    <a href=\'http://localhost:8080/blockchain/certification.do/diploma/" + DiplomaResult + "/enrollment/" + EnrollmentResult + "/time/" + time + "\'>인증</a>\r\n" +
-                        "    <input type=\"submit\" value=\"인증\" style=\"background-color: gray;\r\n" + 
-                        "    border: none;\r\n" + 
-                        "    color: white;\r\n" + 
-                        "    padding: 16px 32px;\r\n" + 
-                        "    text-decoration: none;\r\n" + 
-                        "    margin: 4px 2px;\r\n" + 
-                        "    cursor: pointer; \">" +
-                        "  </article>\r\n" + 
-                        "</section>\r\n" +
-                        
-                        "<section>\r\n" + 
-                        "  <article style=\"float: left;\r\n" + 
-                        "    padding: 20px;\r\n" + 
-                        "    width: 70%;\r\n" + 
-                        "    border: 3px solid black;\r\n" +
-                        "    background-color: #f1f1f1;\r\n" + 
-                        "    height: 50%;\">\r\n" + 
-                        "    <h1 style=\"font-size:22px\">" + diploma.getName() + " " + diploma.getType() +"</h1><br><br><br>\r\n" + 
-                        "    <p style=\"font-size:18px; \">증명서를 확인해주세요.</p>\r\n" + 
-                        "    <a href=\'http://localhost:8080/blockchain/certification.do/diploma/" + DiplomaResult + "/enrollment/" + EnrollmentResult + "/time/" + time + "\'>인증</a>\r\n" +
-                        "    <input type=\"submit\" value=\"인증\" style=\"background-color: gray;\r\n" + 
-                        "    border: none;\r\n" + 
-                        "    color: white;\r\n" + 
-                        "    padding: 16px 32px;\r\n" + 
-                        "    text-decoration: none;\r\n" + 
-                        "    margin: 4px 2px;\r\n" + 
-                        "    cursor: pointer; \">" +
-                        "  </article>\r\n" + 
-                        "</section>\r\n"
+            		   "<section>\r\n" + 
+                               "  <article style=\"float: left;  padding: 20px; width: 40%; border: 0.5px solid black; height: 50%;\">\r\n" + 
+                               "      <a href=\"http://www.sejong.ac.kr\" > <img src=\"http://sejong.ac.kr/img/common/h1_top_logo01.gif\" alt=\"Sejong\" height=\"25%\" width=\"25%\">      </a>\r\n" + 
+                               "\r\n" + 
+                               "        <h1>" + enrollment.getName()+ " / " + enrollment.getMajor() + "</h1>\r\n" + 
+                               "        <hr>\r\n" + 
+                               "        <p style=\"font-weight:bold; display:inline; font-size:12px\">전화 : </p>\r\n" + 
+                               "        <p style=\"display:inline; font-size:12px\">02-3408-3114</p>\r\n" + 
+                               "        <br>\r\n" + 
+                               "        <p style=\"font-weight:bold; display:inline; font-size:12px\">FAX : </p>\r\n" + 
+                               "        <a style=\"background-color: #00B4DB; color: white; padding: 8px 25px; text-align: center; text-decoration: none; display: inline-block; float:right; font-weight:bold;\" href=\'http://localhost:8080/blockchain/certification.do/diploma/"+ DiplomaResult +"/enrollment/" + EnrollmentResult + "/time/" + time + "\'>인증</a>\r\n" +
+                               "\r\n" + 
+                               "        <p style=\"display:inline; font-size:12px\">02-6935-2419</p>\r\n" + 
+                               "        <br>\r\n" + 
+                               "        <p style=\"font-weight:bold; display:inline; font-size:12px\">E-mail : </p>\r\n" + 
+                               "        <p style=\"display:inline; font-size:12px\">sw6@sejong.ac.kr</p>\r\n" + 
+                               "\r\n" + 
+                               "  </article>\r\n" + 
+                               "</section>"
                         , "UTF-8", "html");
             }
             
