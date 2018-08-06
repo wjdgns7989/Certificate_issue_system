@@ -52,20 +52,17 @@ public class EmailSender  {
                      "<section>\r\n" + 
                                 "  <article style=\"float: left;\r\n" + 
                                 "    padding: 20px;\r\n" + 
-                                "    width: 70%;\r\n" + 
+                                "    width: 40%;\r\n" + 
                                 "    border: 3px solid black;\r\n" +
-                                "    background-color: #f1f1f1;\r\n" + 
                                 "    height: 50%;\">\r\n" + 
                                 "    <h1 style=\"font-size:22px\">" + diploma.getName() + " " + diploma.getType() +"</h1><br><br><br>\r\n" + 
                                 "    <p style=\"font-size:18px; \">증명서를 확인해주세요.</p>\r\n" + 
-                                "    <a href=\'http://localhost:8080/blockchain/certification.do/diploma/" + DiplomaResult +"/enrollment/null/time/" + time + "\'>인증</a>\r\n" +
-                                "    <input type=\"submit\" value=\"인증\" style=\"background-color: gray;\r\n" + 
-                                "    border: none;\r\n" + 
+                                "    <a style=\"background-color: #00B4DB;\r\n" + 
                                 "    color: white;\r\n" + 
-                                "    padding: 16px 32px;\r\n" + 
+                                "    padding: 14px 25px;\r\n" + 
+                                "    text-align: center;\r\n" + 
                                 "    text-decoration: none;\r\n" + 
-                                "    margin: 4px 2px;\r\n" + 
-                                "    cursor: pointer; \">" +
+                                "    display: inline-block;\" href=\'http://localhost:8080/blockchain/certification.do/diploma/" + DiplomaResult +"/enrollment/null/time/" + time + "\'>인증</a>\r\n" + 
                                 "  </article>\r\n" + 
                                 "</section>\r\n"
                                 , "UTF-8", "html");

@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
       alert('Your data has been successfully saved.');
-      location.href="<%=cp%>/showResult";
+      location.href="/blockchain/";
 </script>
 <title></title>
 </head>

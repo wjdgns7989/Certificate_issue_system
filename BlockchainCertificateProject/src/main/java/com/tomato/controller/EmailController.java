@@ -32,6 +32,7 @@ import com.tomato.util.EmailSender;
          String time=(String) request.getSession().getAttribute("time");
 
          sendEmailToManager(email, enrollment, diploma, time);
+         request.getSession().invalidate();
          return page;
       }
       

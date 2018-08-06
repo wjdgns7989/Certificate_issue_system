@@ -134,7 +134,7 @@
 
 				<div class="col">
 					<input class="btn btn-primary float-right" type="submit"
-						value="인증 요청">
+						value="인증">
 				</div>
 			</div>
 		</form>
