@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
-      alert('Your data has been successfully saved.');
+      alert('증명서를 확인요청 하였습니다.');
       location.href="/blockchain/";
 </script>
 <title></title>
