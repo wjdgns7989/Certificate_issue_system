@@ -3,7 +3,7 @@
 	pageEncoding="utf-8"%>
 <html>
 <head>
-<title>Title</title>
+<title>blockChain</title>
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport"
@@ -31,7 +31,7 @@
 
 	<!-- nav -->
 	<nav class="nav bg-dark">
-		<a class="nav-link active" href="#">세종대학교</a>
+		<a class="nav-link active" href="http://sejong.ac.kr">세종대학교</a>
 	</nav>
 
 	<!-- body -->

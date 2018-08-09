@@ -8,7 +8,7 @@
 <html>
 
 <head>
-<title>Title</title>
+<title>blockChain</title>
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport"
@@ -24,7 +24,7 @@
 <body>
 	<!-- nav -->
 	<nav class="nav bg-dark">
-		<a class="nav-link active" href="#">세종대 로고</a>
+		<a class="nav-link active" href="http://www.sejong.ac.kr">세종대학교</a>
 	</nav>
 
 	<!-- body -->
@@ -34,8 +34,9 @@
 		EnrollmentDTO enrollmentDTO = (EnrollmentDTO) request.getAttribute("enrollment");
 		DiplomaDTO diplomaDTO = (DiplomaDTO) request.getAttribute("diploma");
 		session.setAttribute("enrollment", enrollmentDTO);
-	    session.setAttribute("diploma", diplomaDTO);
+		session.setAttribute("diploma", diplomaDTO);
 
+		String time = (String) session.getAttribute("time");
 	%>
 
 	<div class="container">
@@ -71,8 +72,10 @@
 				</tr>
 				<tr>
 					<td colspan="7" class="center text-center"><span
-						class="d-inline-block text-center "> 2000.00.00 위 사람은
-							세종대학교에 재학 중임이 증명되었습니다. <img src="#none" alt="세종대로고">
+						class="d-inline-block text-center "> <%=time%> 위 사람은
+							세종대학교에 재학 중임이 증명되었습니다. <img
+							src="http://sejong.ac.kr/img/common/h1_top_logo01.gif"
+							alt="세종대로고">
 					</span></td>
 				</tr>
 			</tbody>
@@ -116,8 +119,10 @@
 				</tr>
 				<tr>
 					<td colspan="10" class="center text-center"><span
-						class="d-inline-block text-center "> 위 사람은 세종대학교에서 졸업했음이
-							증명되었습니다. <img src="#none" alt="세종대로고">
+						class="d-inline-block text-center "> <%=time%>위 사람은
+							세종대학교에서 졸업했음이 증명되었습니다. <img
+							src="http://sejong.ac.kr/img/common/h1_top_logo01.gif"
+							alt="세종대로고">
 					</span></td>
 				</tr>
 			</tbody>
