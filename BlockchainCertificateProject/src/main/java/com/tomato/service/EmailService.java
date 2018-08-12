@@ -1,4 +1,4 @@
-package com.tomato.util;
+package com.tomato.service;
 import java.util.HashMap;
 
 import javax.mail.MessagingException;
@@ -19,7 +19,7 @@ import com.tomato.dto.EnrollmentDTO;
 
 
 @Component
-public class EmailSender  {
+public class EmailService  {
      
     @Autowired
     private JavaMailSender mailSender;

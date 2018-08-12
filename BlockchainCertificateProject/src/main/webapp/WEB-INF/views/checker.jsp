@@ -1,3 +1,4 @@
+
 <!doctype html>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.util.Date"%>
@@ -28,7 +29,7 @@
 <body>
 	<!-- nav -->
 	<nav class="nav bg-dark">
-		<a class="nav-link active" href="#">세종대 로고</a>
+		<a class="nav-link active" href="http://www.sejong.ac.kr">세종대학교</a>
 	</nav>
 
 	<!-- body -->
@@ -38,7 +39,7 @@
 		EnrollmentDTO enrollmentDTO = (EnrollmentDTO) request.getAttribute("enrollment");
 		DiplomaDTO diplomaDTO = (DiplomaDTO) request.getAttribute("diploma");
 		String time = (String) request.getAttribute("time_data");
-		
+
 		session.setAttribute("check_enrollment", enrollmentDTO);
 		session.setAttribute("check_diploma", diplomaDTO);
 		session.setAttribute("check_time", time);
@@ -133,8 +134,7 @@
 			<div class="row">
 
 				<div class="col">
-					<input class="btn btn-primary float-right" type="submit"
-						value="인증">
+					<input class="btn btn-primary float-right" type="submit" value="인증">
 				</div>
 			</div>
 		</form>

@@ -26,6 +26,7 @@ public class CertificationController {
 	@Autowired
 	CertificationService certificationService;
 
+	// json 방식으로 보낸 요청이 서버에 있는 데이터와 맞는지 검증한다.
 	@RequestMapping(value = "/resultCheck.do", method = RequestMethod.GET)
 	public ModelAndView resultCheck(HttpServletRequest request, ModelAndView mv) {
 

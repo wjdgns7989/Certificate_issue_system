@@ -26,10 +26,12 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
+	<!-- 이메일 관련 빈즈 객체 -->
 
 	<beans:bean id="email" class="com.tomato.dto.EmailDTO"></beans:bean>
 
-	<beans:bean id="emailSender" class="com.tomato.util.EmailSender"></beans:bean>
+	<beans:bean id="emailSender"
+		class="com.tomato.service.EmailService"></beans:bean>
 
 	<beans:bean id="mailSender"
 		class="org.springframework.mail.javamail.JavaMailSenderImpl">
@@ -49,20 +51,20 @@
 		</beans:property>
 	</beans:bean>
 
+	<!-- 로그인 여부에 따른 인터셉터 구 -->
+
 	<beans:bean id="loginIntercept"
 		class="com.tomato.util.InterCept">
-
 	</beans:bean>
 
 	<interceptors>
-
 		<interceptor>
 			<mapping path="/boxcheck.do" />
 			<beans:ref bean="loginIntercept" />
 		</interceptor>
 	</interceptors>
-	<context:component-scan
-		base-package="com.tomato.*" />
+	
+	<context:component-scan	base-package="com.tomato.*" />
 
 
 </beans:beans>
