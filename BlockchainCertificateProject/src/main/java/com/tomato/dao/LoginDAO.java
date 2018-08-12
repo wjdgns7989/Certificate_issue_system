@@ -13,6 +13,7 @@ public class LoginDAO {
 	public boolean loginCheck(UserDTO userDTO) {
 		boolean loginOk = false;
 		Map<String, String> member = LoginUser.getInstance();
+		//id와 passwd를 확인한다. 
 		for (String key : member.keySet()) {
 			if (key.equals(userDTO.getId())) {
 				if (member.get(key).equals(userDTO.getPasswd())) {
